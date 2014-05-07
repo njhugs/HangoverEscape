@@ -1,4 +1,4 @@
-Bed Room:
+Bedroom:
     desc: Where the magic happens
     objects: [ desk, bed, wardrobe ]
     north: Living Room

@@ -5,4 +5,4 @@ import yaml
 
 data = yaml.load( open('rooms.yaml', 'r') )
 
-myworld = world.World( data, 'SURGE 104C' )
+myworld = world.World( data, 'Bedroom' )

@@ -13,15 +13,15 @@ class Room:
     def __init__(self, data, name):
 	self.name = name #added a name attribute
         self.description = data['desc']
-        self.items = data['items'] # list of item string names
+        self.items = data['objects'] # list of item string names
         self.item_list = [] # list of room objects
-        for item in data['items']:#Added by Luke            
+        for item in data['objects']:#Added by Luke            
             self.item_list.append(Item(item))
             #self.item_list[cntr] = Item(self.items[cntr])#Added by Luke
 
     def __str__(self):
 	list_of_strings = [ str(item) for item in self.items ]
-        return "room name: " + self.name + "\ndescription: " + self.description + "\nitems: " +  ", ".join(list_of_strings) # made it so also returns room name b4 desc and items
+        return "room name: " + self.name + "\ndescription: " + self.description + "\nobjects: " +  ", ".join(list_of_strings) # made it so also returns room name b4 desc and items
 
     def get_name(self): #added a method to return room name
 	return self.name

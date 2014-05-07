@@ -4,7 +4,7 @@ import game
 import world
 import sys
 
-myworld1 = world.World( game.data, 'SURGE 104C')
+myworld1 = world.World( game.data, 'Bedroom')
 
 for rooms_name, room_object in myworld1.rooms.items():
      for item_object in room_object.item_list:
