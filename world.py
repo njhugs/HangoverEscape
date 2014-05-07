@@ -53,7 +53,7 @@ class World:
         try:
                 newRoom = data[self._current.get_name()][direction]
 	except KeyError:
-        	raise NoPath(direction)
+        	print("You can't go: " + direction) 
 	else:
 		self._current = self.rooms[newRoom] #updates the current room object in the world   
 
