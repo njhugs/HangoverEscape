@@ -1,18 +1,18 @@
 Bed Room:
     desc: Where the magic happens
-    items: [ desk, bed, wardrobe ]
+    objects: [ desk, bed, wardrobe ]
     north: Living Room
 Living Room:
     desc: Party area.
-    items: [ pool table, TV, sofa, coffie table, lamp ]
+    objects: [ pool table, TV, sofa, coffie table, lamp ]
     south: Bed Room
     east: Kitchen
     west: Bathroom
 Kitchen:
     decs: A place where delicious things are made.
-    items: [table, counter, fridge, microwave]
+    objects: [table, counter, fridge, microwave]
     west: Living Room
 Bathroom:
     decs: We don\'t go there anymore...'
-    items: [toilet, shower, sink]
+    objects: [toilet, shower, sink]
     east: Living Room

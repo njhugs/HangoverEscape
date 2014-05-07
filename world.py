@@ -1,6 +1,3 @@
-class NoPath(RuntimeError):
-    pass
-
 class Item:
     """A signle item"""
 
@@ -16,8 +13,8 @@ class Room:
     def __init__(self, data, name):
 	self.name = name #added a name attribute
         self.description = data['desc']
-        self.items = data['items']
-        self.item_list = []#Added by Luke
+        self.items = data['items'] # list of item string names
+        self.item_list = [] # list of room objects
         for item in data['items']:#Added by Luke            
             self.item_list.append(Item(item))
             #self.item_list[cntr] = Item(self.items[cntr])#Added by Luke
@@ -29,12 +26,6 @@ class Room:
     def get_name(self): #added a method to return room name
 	return self.name
     
-    def directionExists(self, data, direction):#Might need to pass self as a peramiter
-        if(data[self.name][direction] != None):# data is a dictionary with two dictionaries inside -- each being the room 
-            return True
-        else:
-            return False
-
 class World:
     """A world contains one or more rooms"""
 
@@ -53,19 +44,25 @@ class World:
         ) )
     def current(self):
         current = staticmethod(current)
+
     @staticmethod
     def current(self):
         return self._current
 
-    def go(self, data, direction):
-        if self._current.directionExists(data, direction):
-            self.updateRoom(data, direction)
-            return True#Direction exists and was moved
-        else:
-            return False#Direction does not exist and was not moved.
-    
-    def updateRoom(self, data, direction):
-        newRoom = data[self._current.get_name()][direction] 
-	self._current = self.rooms[newRoom] #updates the current room object in the world
+    def go(self, data, direction): # put a try, except in for accessing direction
+        try:
+                newRoom = data[self._current.get_name()][direction]
+	except KeyError:
+        	raise NoPath(direction)
+	else:
+		self._current = self.rooms[newRoom] #updates the current room object in the world   
 
-    #def commandInput(self, data)
+ #   def NoPath(direction):
+#	print("You cannot travel" + direction)
+     
+class NoPath(KeyError):
+     def __init__(self, direction):
+        self.direction = direction
+     def __str__(self):
+	return ("There is no path leading " + self.direction)
+   #def commandInput(self, data)
