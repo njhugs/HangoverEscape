@@ -53,7 +53,7 @@ class World:
         try:
                 newRoom = data[self._current.get_name()][direction]
         except KeyError:
-                print("You can't go: " + direction) 
+                print("\nYou can't go: " + direction + "\n") 
         else:
                 self._current = self.rooms[newRoom] #updates the current room object in the world   
 

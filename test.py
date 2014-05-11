@@ -11,12 +11,13 @@ for rooms_name, room_object in myworld1.rooms.items():
          if isinstance(item_object, world.Item) == False:
              raise RuntimeError("Object type missmatch in Room.item_list.")
 
+print("\nYou've woken up dazed and confused in an unfamiliar place\n")
+print("Type: 'go direction' to change rooms\ndirections: {north, south, east, west}\n")
 while True:
     print(myworld1.current(myworld1))
+    print
     l=sys.stdin.readline()
     command, arguments = l.partition(' ')[::2]
-    print('\nNow we\'re about to move\n')
-    #myworld1.go(game.data, 'north')
     getattr(myworld1, command)(game.data,arguments.strip())
 
 
