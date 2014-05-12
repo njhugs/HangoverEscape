@@ -9,10 +9,10 @@ Living Room:
     east: Kitchen
     west: Bathroom
 Kitchen:
-    decs: A place where delicious things are made.
+    desc: A place where delicious things are made.
     objects: [table, counter, fridge, microwave]
     west: Living Room
 Bathroom:
-    decs: We don\'t go there anymore...'
+    desc: We don't go there anymore...'
     objects: [toilet, shower, sink]
     east: Living Room
