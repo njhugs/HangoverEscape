@@ -13,6 +13,6 @@ Kitchen:
     objects: [table, counter, fridge, microwave]
     west: Living Room
 Bathroom:
-    desc: We don\'t go there anymore...'
+    desc: We don't go there anymore...'
     objects: [toilet, shower, sink]
     east: Living Room
