@@ -1,18 +1,32 @@
 Bedroom:
     desc: Where the magic happens
     objects: [ desk, bed, wardrobe ]
+    desk: Nothing but lots of doodles on what looks like homework.
+    bed: You will never unsee what you saw under those sheets.
+    wardrobe: Never seen so many plants inside a wardrobe.
     north: Living Room
 Living Room:
     desc: Party area.
-    objects: [ pool table, TV, sofa, coffie table, lamp ]
+    objects: [ billards, RV, sofa, coffie table, lamp ]
+    billards: There seems to be a couple balls missing...
+    TV: You found a slice of pizza wedged into the blueray player.
+    sofa: You found a hidden compartment with a colection of magazines.
+    coffie table: Nothing but beer and empty chip bags.
+    lamp: You found a potato in place of a bulb. No will not turn on.
     south: Bed Room
     east: Kitchen
     west: Bathroom
 Kitchen:
     desc: A place where delicious things are made.
-    objects: [table, counter, fridge, microwave]
+    objects: [ table, fridge, microwave ]
+    table: You found your old roommate under the table asleep.
+    fridge: You found beer. You are shocked to see there is this much left.
+    microwave: You found a light bulb.
     west: Living Room
 Bathroom:
     desc: We don't go there anymore...'
-    objects: [toilet, shower, sink]
+    objects: [ toilet, shower, sink ]
+    toilet: Why are you looking in there?
+    shower: You hear noises right before you pull back the curtain.
+    sink: It lookes like someone puked in here...
     east: Living Room
