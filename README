@@ -1,5 +1,5 @@
 Summary of the Project: HANGOVER ESCAPE
-This is a text-based game where you move room-to-room, explorint. 
+This is a text-based game where you move room-to-room, exploring. 
 After a night you can't remember, find your way out of an unfamiliar place, but not before finding your belongings.
 
 
@@ -8,3 +8,10 @@ We use a yaml file to store the metadata for the game so that new games can be i
 We implement the project in Python because it caters to object oriented design, which is the design of choice fot this text-based adventure game.
 Rule of Seperation: The game mechanisms are partitioned into a game engine and user interface.
 Rule of Simplicity: By employing object-oriented desgin, we break the game implementation down into smaller pieces represented by classes.
+
+github link: https://github.com/nathodius/HangoverEscape
+
+Tasks to imporve prototype
+-add functionality for searching ojbjects
+-add a player class with an inventory
+-complete a user interface
