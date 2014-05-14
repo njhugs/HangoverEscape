@@ -1,3 +1,13 @@
+class hold_item:
+    """A single hold item"""
+    
+    def __init__(self, hiName, hiLocation):
+        self.hiName = hiName
+        self._hiLocation = hiLocation
+        
+    def get_location(self):
+        return self._hiLocation
+        
 class Item:
     """A signle item"""
 
@@ -37,6 +47,7 @@ class World:
             counter = counter + 1 
 
         self._current = self.rooms[current_name]
+        #randamize and intitialize items here
 
     def __str__(self):
         return "World:\n{0}".format( "\n%%\n".join(
@@ -57,6 +68,13 @@ class World:
         else:
                 self._current = self.rooms[newRoom] #updates the current room object in the world   
 
+    def search(self, data, object):
+        try:
+            pass#Check to see if the objects are located here.
+        except KeyError:
+            print("There is no \"" + object + "\" in this room.")
+        else:
+            pass#if found they say so. else print alt text from yamnl file. 
  #   def NoPath(direction):
 #	print("You cannot travel" + direction)
      
