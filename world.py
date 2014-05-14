@@ -1,3 +1,5 @@
+import random
+
 class hold_item:
     """A single hold item"""
     
@@ -45,6 +47,9 @@ class World:
         for key,value in data.items():
             self.rooms[key] = Room(data[key], data.keys()[counter]) # give each room a name by getting dict key
 	    counter = counter + 1 
+
+        #rndRooms = {}
+        print("This is a random room: " + random.choice(random.choice(self.rooms.keys()).item_list) )
 
         self._current = self.rooms[current_name]
         #randamize and intitialize items here
