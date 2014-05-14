@@ -62,8 +62,8 @@ class World:
 
         #rndRooms = {}
         #print("This is a random room: " + random.choice(random.choice(self.rooms.keys()).item_list) )
-        self._wallet = Hold_item( 'wallet', 'bed' )
-        #self._wallet = Hold_item( 'wallet', random.choice(random.choice(self.rooms.keys()).item_list.keys()))
+        #self._wallet = Hold_item( 'wallet', 'bed' )
+        #self._wallet = Hold_item( 'wallet', random.choice(random.choice(self.rooms.keys()).item_list))
 
         #self._keys = Hold_item( 'keys', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
         #self._phone = Hold_item( 'phone', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
