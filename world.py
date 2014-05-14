@@ -60,16 +60,13 @@ class World:
 
 	self.inventory = [] # the items the player has found 
 
-        #rndRooms = {}
-        #print("This is a random room: " + random.choice(random.choice(self.rooms.keys()).item_list) )
-        #self._wallet = Hold_item( 'wallet', 'bed' )
-        #self._wallet = Hold_item( 'wallet', random.choice(random.choice(self.rooms.keys()).item_list))
-
-        #self._keys = Hold_item( 'keys', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
-        #self._phone = Hold_item( 'phone', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
+        self._wallet = Hold_item( 'wallet', random.choice( self.rooms[random.choice(self.rooms.keys())].items  ))
+        #self._wallet = Hold_item( 'wallet', 'bed')
+        #print('wallet location' + self._wallet.get_location())
+#        self._keys = Hold_item( 'keys', random.choice( self.rooms[random.choice(self.rooms.keys())].items))
+ #       self._phone = Hold_item( 'phone', random.choice( self.rooms[random.choice(self.rooms.keys())].items  ))
 
         self._current = self.rooms[current_name]
-        #randamize and intitialize items here
 
     def __str__(self):
         return "World:\n{0}".format( "\n%%\n".join(
@@ -96,9 +93,12 @@ class World:
         except KeyError: # there's no object with that name
             print("There is no \"" + object + "\" in this room.")
         else:
-            self.inventory.append(object_desc)
+            if object == self._wallet.get_location:
+                print("You found your wallet. You win!")
+            else:
+                self.inventory.append(object_desc)
                 
-	    print(object_desc) 
+	        print(object_desc) 
      
 class NoPath(KeyError):
      def __init__(self, direction):
