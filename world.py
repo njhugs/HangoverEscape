@@ -6,9 +6,16 @@ class Hold_item:
     def __init__(self, hiName, hiLocation):
         self.hiName = hiName
         self._hiLocation = hiLocation
+        self._hifound
         
     def get_location(self):
         return self._hiLocation
+
+    def get_found(self):
+        return self._hifound
+
+    def set_found(self, found):
+        self._hifound = found 
         
 class Item:
     """A signle item"""
@@ -48,14 +55,14 @@ class World:
             self.rooms[key] = Room(data[key], data.keys()[counter]) # give each room a name by getting dict key
             counter = counter + 1
 
-	self.inventory[] # the items the player has found 
+	self.inventory = [] # the items the player has found 
 
         #rndRooms = {}
         #print("This is a random room: " + random.choice(random.choice(self.rooms.keys()).item_list) )
 
-        self._wallet = Hold_item( 'wallet', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
-        self._keys = Hold_item( 'keys', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
-        self._phone = Hold_item( 'phone', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
+        #self._wallet = Hold_item( 'wallet', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
+        #self._keys = Hold_item( 'keys', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
+        #self._phone = Hold_item( 'phone', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
 
         self._current = self.rooms[current_name]
         #randamize and intitialize items here
@@ -73,20 +80,21 @@ class World:
 
     def go(self, data, direction): # put a try, except in for accessing direction
         try:
-                newRoom = data[self._current.get_name()][direction]
+            newRoom = data[self._current.get_name()][direction]
         except KeyError:
-                print("\nYou can't go: " + direction + "\n") 
+            print("\nYou can't go: " + direction + "\n") 
         else:
-                self._current = self.rooms[newRoom] #updates the current room object in the world   
+            self._current = self.rooms[newRoom] #updates the current room object in the world   
 
     def search(self, data, object): #search only current room
         try:
-		item_found = data[self._current.get_name()][object] # this assumes one item per object
+            item_found = data[self._current.get_name()][object] # this assumes one item per object
         except KeyError: # there's no object with that name
             print("There is no \"" + object + "\" in this room.")
         else:
-                inventory.append(item_found)
-		print("You have found your " + item_found) 
+            self.inventory.append(item_found)
+                
+	    print("You have found your " + item_found) 
      
 class NoPath(KeyError):
      def __init__(self, direction):
