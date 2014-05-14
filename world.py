@@ -1,6 +1,6 @@
 import random
 
-class hold_item:
+class Hold_item:
     """A single hold item"""
     
     def __init__(self, hiName, hiLocation):
@@ -49,7 +49,11 @@ class World:
 	    counter = counter + 1 
 
         #rndRooms = {}
-        print("This is a random room: " + random.choice(random.choice(self.rooms.keys()).item_list) )
+        #print("This is a random room: " + random.choice(random.choice(self.rooms.keys()).item_list) )
+
+        self._wallet = Hold_item( 'wallet', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
+        self._keys = Hold_item( 'keys', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
+        self._phone = Hold_item( 'phone', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
 
         self._current = self.rooms[current_name]
         #randamize and intitialize items here
