@@ -6,7 +6,7 @@ class Hold_item:
     def __init__(self, hiName, hiLocation):
         self.name = hiName
         self._location = hiLocation
-        self._found
+        self._found = False
 
     def __str__(self):
         return self.name
@@ -62,8 +62,9 @@ class World:
 
         #rndRooms = {}
         #print("This is a random room: " + random.choice(random.choice(self.rooms.keys()).item_list) )
+        self._wallet = Hold_item( 'wallet', 'bed' )
+        #self._wallet = Hold_item( 'wallet', random.choice(random.choice(self.rooms.keys()).item_list.keys()))
 
-        self._wallet = Hold_item( 'wallet', random.choice(random.choice(self.rooms.keys()).item_list.keys()))
         #self._keys = Hold_item( 'keys', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
         #self._phone = Hold_item( 'phone', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
 
@@ -97,7 +98,7 @@ class World:
         else:
             self.inventory.append(object_desc)
                 
-	    print("You have found your " + item_found) 
+	    print(object_desc) 
      
 class NoPath(KeyError):
      def __init__(self, direction):
