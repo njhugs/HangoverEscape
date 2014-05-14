@@ -4,15 +4,18 @@ class Hold_item:
     """A single hold item"""
     
     def __init__(self, hiName, hiLocation):
-        self.hiName = hiName
-        self._hiLocation = hiLocation
-        self._hifound
+        self.name = hiName
+        self._location = hiLocation
+        self._found
+
+    def __str__(self):
+        return self.name
         
     def get_location(self):
-        return self._hiLocation
+        return self._location
 
     def get_found(self):
-        return self._hifound
+        return self._found
 
     def set_found(self, found):
         self._hifound = found 
@@ -60,7 +63,7 @@ class World:
         #rndRooms = {}
         #print("This is a random room: " + random.choice(random.choice(self.rooms.keys()).item_list) )
 
-        #self._wallet = Hold_item( 'wallet', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
+        self._wallet = Hold_item( 'wallet', random.choice(random.choice(self.rooms.keys()).item_list.keys()))
         #self._keys = Hold_item( 'keys', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
         #self._phone = Hold_item( 'phone', random.choice(random.choice(self.rooms.keys()).item_list.keys()) )
 
@@ -88,11 +91,11 @@ class World:
 
     def search(self, data, object): #search only current room
         try:
-            item_found = data[self._current.get_name()][object] # this assumes one item per object
+            object_desc = data[self._current.get_name()][object] # this assumes one item per object
         except KeyError: # there's no object with that name
             print("There is no \"" + object + "\" in this room.")
         else:
-            self.inventory.append(item_found)
+            self.inventory.append(object_desc)
                 
 	    print("You have found your " + item_found) 
      
