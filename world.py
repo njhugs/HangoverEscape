@@ -44,7 +44,9 @@ class World:
         counter = 0
         for key,value in data.items():
             self.rooms[key] = Room(data[key], data.keys()[counter]) # give each room a name by getting dict key
-            counter = counter + 1 
+            counter = counter + 1
+
+	self.inventory[] # the items the player has found 
 
         self._current = self.rooms[current_name]
         #randamize and intitialize items here
@@ -68,15 +70,14 @@ class World:
         else:
                 self._current = self.rooms[newRoom] #updates the current room object in the world   
 
-    def search(self, data, object):
+    def search(self, data, object): #search only current room
         try:
-            pass#Check to see if the objects are located here.
-        except KeyError:
+		item_found = data[self._current.get_name()][object] # this assumes one item per object
+        except KeyError: # there's no object with that name
             print("There is no \"" + object + "\" in this room.")
         else:
-            pass#if found they say so. else print alt text from yamnl file. 
- #   def NoPath(direction):
-#	print("You cannot travel" + direction)
+                inventory.append(item_found)
+		print("You have found your " + item_found) 
      
 class NoPath(KeyError):
      def __init__(self, direction):
